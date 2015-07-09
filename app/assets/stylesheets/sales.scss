@@ -194,62 +194,35 @@ section.collaborations {
 
 	.collab-row {
 		@include outer-container;
+		margin-top: 25px;
 
-		.img1 {
+		.section1 {
 			@include span-columns(8);
-			height: 450px;
+			height: 500px;
 			background-color: #aaa;
 		}
 
-		.img-group1 {
+		.section2 {
 			@include span-columns(4);
-
-			.img2 {
-				width: 100%;
-				height: 211px;
-				background-color: #aaa;
-			}
-			.img3 {
-				margin-top: 25px;
-				width: 100%;
-				height: 211px;
-				background-color: #aaa;
-			}			
+			height: 500px;
 		}
 
-		.img-group2 {
-			@include span-columns(8);
-			margin-top: 25px;
-
-			.img-row {
-				@include outer-container;
-				.img4 {
-					@include span-columns(6);
-					height: 211px;
-					background-color: #aaa;
-				}
-
-				.img5 {
-					@include span-columns(6);
-					height: 211px;
-					background-color: #aaa;
-				}
-
-				&:last-child {
-					margin-top: 27px;
-				}				
-			}
-
-		}
-
-		.img8 {
+		.section3 {
 			@include span-columns(4);
-			margin-top: 25px;
-			height: 450px;
+			height: 500px;
 			background-color: #aaa;
 		}
 
+		.img {
+			height: 237px;
+			background-color: #aaa;
+		}
+
+		.m-t {
+			margin-top: 25px;
+		}
 	}
+
 	.collab-cta {
 		text-align: center;
 		margin-top: 50px;
