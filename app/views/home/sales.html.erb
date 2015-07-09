@@ -1,0 +1,172 @@
+<header class='nav nav1'>
+	<%= link_to root_path, class: 'logo' do %>
+	  <%= image_tag 'logo-white.png' %>
+	<% end %>
+	<ul class='nav-items'>
+		<li>Sign up</li>
+		<li>Log in</li>
+		<li><button>Become an Influencer</button></li>
+	</ul>
+</header>
+
+<header class='nav nav2'>
+	<%= link_to root_path, class: 'logo' do %>
+	  <%= image_tag 'logo-black.png' %>
+	<% end %>
+	<ul class='nav-items'>
+		<li><button>Start now for free!</button></li>
+	</ul>
+</header>
+
+
+<section class='landing'>
+	<div class='tagline'>
+		<h1>Who will you reach?</h1>
+		<h4>Find social influencers to reach <strong>any</strong> audience</h4>
+		<button>Start now for free!</button>
+	</div>
+	
+	<div class='brandlogos'>
+	
+	</div>
+</section>
+
+
+<section class='categories'>
+	<h1>Work with someone perfect for your brand</h1>
+	<div class='cat-row'>
+		<div class='cat-square'>Nature</div>
+		<div class='cat-square'>Trendy</div>
+		<div class='cat-square'>Nomad</div>
+	</div>
+	<div class='cat-row'>
+		<div class='cat-square'>Lifestyle</div>
+		<div class='cat-square'>Musician</div>
+		<div class='cat-square'>Fitness</div>
+	</div>
+	<div class='cat-cta'>
+		<button>View all categories</button>
+	</div>
+</section>
+
+
+<section class='studies'>
+	<div class='studies-wrapper'>
+		<div class='copy'>
+			<h1>Can't argue with results</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur</p>
+			<p>explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur!</p>
+		</div>
+		<div class='studies-cta'>
+			<button>View case study</button>
+		</div>
+	</div>
+</section>
+
+
+<section class='collaborations'>
+	<h1>Powerful collaborations created everyday</h1>
+	<div class='collab-row'>
+		<div class='img1'></div>
+		<div class='img-group1'>
+			<div class='img2'></div>
+			<div class='img3'></div>
+		</div>
+	</div>
+	<div class='collab-row'>
+		<div class='img-group2'>
+			<div class='img-row'>
+				<div class='img4'></div>
+				<div class='img5'></div>
+			</div>
+			<div class='img-row'>
+				<div class='img4'></div>
+				<div class='img5'></div>
+			</div>
+		</div>
+		<div class='img8'></div>
+	</div>
+	<div class='collab-cta'>
+		<button>Collaborate now!</button>
+	</div>
+</section>
+
+<section class='influencer'>
+	<div class='influencer-wrapper'>
+		<div class='copy'>
+			<h1>Meet our Girl Max</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur</p>
+			<p>explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur!</p>			
+		</div>
+		<div class='influencer-cta'>
+			<button>Find an Elite now</button>
+		</div>
+	</div>
+</section>
+
+<section class='testimonials'>
+	<div class="scroller">
+	  <div>
+		<h1>"I love how simple it is to make things happen through Paid. Communication, search, payment - it's all easy to do and in one place."</h1>
+		<p>ALI MURPHY, Director of Marketing at AIRBNB</p>	  	
+	  </div>
+	  <div>
+	  	<h1>"I love how simple it is to make things happen through Paid. Communication, search, payment - it's all easy to do and in one place."</h1>
+		<p>ALI MURPHY, Director of Marketing at pepsi</p>	
+	  </div>
+	  <div>
+		<h1>"I love how simple it is to make things happen through Paid. Communication, search, payment - it's all easy to do and in one place."</h1>
+		<p>ALI MURPHY, Director of Marketing at Frank & Oak</p>		  	
+	  </div>
+	</div>
+	<ul>
+		<li>AirBNB</li>
+		<li>pepsi</li>
+		<li>Frank & Oak</li>
+	</ul>
+</section>
+
+<section class='support'> 
+	<h1>Award-Winning support</h1>
+	<p>Hashtag Paid Support Rockstars are all about making your life easier. Help is free forever, and you'll always get a real, live human faster than you can say, "Wow that was crazy fast!"</p>
+	<div class='support-cta'>
+		<button>1-844-PAID-100</button>
+		<button>hello@hashtagpaid.com</button>
+	</div>
+</section>
+
+<section class='closing'>
+	<h1>Join over 1,000 brands already using #paid</h1>
+	<button>Start now for free!</button>
+</section>
+
+<section class='logos'>
+</section>
+
+<footer>
+
+</footer>
+
+<script type="text/javascript">
+	$(document).scroll(function() {
+		var panelHeight = $('.landing').height();
+        var sT = $(this).scrollTop();
+
+	    if (sT >= panelHeight){
+          $('header.nav2').css({ 'opacity' : 1 });
+        } else {
+          $('header.nav2').css({ 'opacity' : 0 });
+        }
+
+        $('.scroller').slick({
+        	arrows: false
+        });
+
+        $('.testimonials li').each(function(i) {
+        	$(this).on('click', function() {
+				$(".scroller").slick( "slickGoTo", i);
+        	});
+        });
+
+	});
+</script>
