@@ -1,3 +1,6 @@
+$mobile: new-breakpoint(max-width 480px);
+
+
 /* navigation */
 $navigation-height: 85px;
 $navigation-padding: 20px;
@@ -53,7 +56,7 @@ header.nav1 {
 header.nav2 {
 	background: white;
 	position: fixed;
-	top: -50px;
+	top: -90px;
 	z-index: 99999;
 	height: $navigation-height;
 
@@ -240,15 +243,25 @@ section.collaborations {
 section.influencer {
 	padding: $navigation-height;
 	background-color: #eee;
-
+	@include media($mobile) {
+	   padding: 30px;
+    }
 	.influencer-wrapper {
 		@include outer-container;
-
+		@include media($mobile) {
+	    }
 		.copy {
 			@include span-columns(6);
 
+			@include media($mobile) {
+			   width: 100%;
+		    }
+
 			h1 {
 				@include heading1;
+				@include media($mobile) {
+				   width: 100%;
+			    }
 				margin-top: 0;
 				margin-bottom: 15px;
 				color: white;
@@ -257,7 +270,9 @@ section.influencer {
 			p {
 				@include span-columns(9);
 				color: white;
-
+				@include media($mobile) {
+				   width: 100%;
+			    }
 				&:last-child {
 					margin-top: 50px;
 					margin-bottom: 60px;
@@ -277,6 +292,15 @@ section.influencer {
 
 section.testimonials {
 	padding: $navigation-height;
+
+	@mixin linked {
+		transition: 0.5s all ease;
+		border-radius: 80px;
+		width: 80px;
+		height: 80px;
+		border-radius: 80px;
+		opacity: 1;		
+	}
 
 	h1 {
 		margin-top: 0;
@@ -303,7 +327,7 @@ section.testimonials {
 			 margin-top: 50px;
 			width: 100px;
 			
-			.logo {
+			.animated {
 				width: 75px;
 				height: 75px;
 				border-radius: 75px;
@@ -311,27 +335,16 @@ section.testimonials {
 				text-align: center;
 				color: white;
 				background-color: #aaa;
-				opacity: 0.5;
+				opacity: 0.3;
 
 				&:hover {
-					transition: 0.5s all ease;
-					border-radius: 80px;
-					width: 80px;
-					height: 80px;
-					border-radius: 80px;
-					opacity: 1;
+					@include linked;
 				}
 
 			}
 
-
 			.linked {
-				transition: 0.5s all ease;
-				border-radius: 80px;
-				width: 80px;
-				height: 80px;
-				border-radius: 80px;
-				opacity: 1;					
+				@include linked;					
 			}
 
 		}

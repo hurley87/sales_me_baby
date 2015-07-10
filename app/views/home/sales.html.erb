@@ -121,13 +121,13 @@
 	</div>
 	<ul>
 		<li>
-			<div class='logo animated'>AirBNB</div>
+			<div class='animated linked'>AirBNB</div>
 		</li>
 		<li>
-			<div class='logo animated'>pepsi</div>
+			<div class='animated'>pepsi</div>
 		</li>
 		<li>
-			<div class='logo animated'>Frank</div>
+			<div class='animated'>Frank</div>
 		</li>
 	</ul>
 </section>
@@ -177,10 +177,10 @@
         $('.testimonials li').each(function(i) {
         	$(this).on('click', function() {
         		$('.testimonials li').each(function(x) {
-        			$(this).find('.logo').removeClass('linked').removeClass('pulse');
+        			$(this).find('.animated').removeClass('linked').removeClass('pulse');
         		});
 				$(".scroller").slick( "slickGoTo", i);
-				$(this).find('.logo').addClass('linked').addClass('pulse');
+				$(this).find('.animated').addClass('linked').addClass('pulse');
         	});
         });
 
