@@ -1,33 +1,45 @@
-<header class='nav nav1'>
+<header>
+	<i class="fa fa-bars fa-2x js-menu-trigger menu-button"></i>
 	<%= link_to root_path, class: 'logo' do %>
 	  <%= image_tag 'logo-white.png' %>
 	<% end %>
-	<ul class='nav-items'>
-		<li>Sign up</li>
-		<li>Log in</li>
-		<li><button>Become an Influencer</button></li>
-	</ul>
+	<nav>
+		<ul>
+			<li><a href="javascript:void(0)">Sign up</a></li>
+			<li><a href="javascript:void(0)">Login</a></li>
+			<li><button>Become an Influencer</button></li>
+		</ul>
+	</nav>	
+	<div class="js-menu menu-content">
+		<ul>
+			<li><a href="javascript:void(0)">Sign up</a></li>
+			<li><a href="javascript:void(0)">Login</a></li>
+			<li><a href="javascript:void(0)">Become an Influencer</a></li>
+		</ul>
+	</div>
+	<div class="js-menu-screen menu-fade-screen"></div>
 </header>
-
-<header class='nav nav2'>
-	<%= link_to root_path, class: 'logo' do %>
-	  <%= image_tag 'logo-black.png' %>
-	<% end %>
-	<ul class='nav-items'>
-		<li><button class='animated'>Start now for free!</button></li>
-	</ul>
-</header>
-
 
 <section class='landing'>
+	<div class='overlay'>
+		
+	</div>
 	<div class='tagline'>
 		<h1>Who will you reach?</h1>
 		<h4>Find social influencers to reach <strong>any</strong> audience</h4>
-		<button>Start now for free!</button>
+		<div class='search'>
+			<p><i class='fa fa-search'></i><input type='text' placeholder='What type of influencer are you looking for?'></p>
+		</div>	
 	</div>
-	
+		
 	<div class='brandlogos'>
-	
+		<div class='logo-wrapper'>
+			<div class='logo bnb'></div>
+			<div class='logo audi'></div>
+			<div class='logo frank'></div>
+			<div class='logo pepsi'></div>
+			<div class='logo uni'></div>
+		</div>
 	</div>
 </section>
 
@@ -35,17 +47,35 @@
 <section class='categories'>
 	<h1>Work with someone perfect for your brand</h1>
 	<div class='cat-row'>
-		<div class='cat-square'>Nature</div>
-		<div class='cat-square'>Trendy</div>
-		<div class='cat-square'>Nomad</div>
+		<div class='cat-square nature'>
+			<h1>Nature</h1>
+			<div class='overlay'></div>
+		</div>
+		<div class='cat-square trendy'>
+			<h1>Trendy</h1>
+			<div class='overlay'></div>
+		</div>
+		<div class='cat-square nomad'>
+			<h1>Nomad</h1>
+			<div class='overlay'></div>
+		</div>
 	</div>
 	<div class='cat-row'>
-		<div class='cat-square'>Lifestyle</div>
-		<div class='cat-square'>Musician</div>
-		<div class='cat-square'>Fitness</div>
+		<div class='cat-square lifestyle'>
+			<h1>Lifestyle</h1>
+			<div class='overlay'></div>
+		</div>
+		<div class='cat-square musician'>
+			<h1>Musician</h1>
+			<div class='overlay'></div>
+		</div>
+		<div class='cat-square fitness'>
+			<h1>Fitness</h1>
+			<div class='overlay'></div>
+		</div>
 	</div>
 	<div class='cat-cta'>
-		<button>View all categories</button>
+		<button>View all</button>
 	</div>
 </section>
 
@@ -121,13 +151,13 @@
 	</div>
 	<ul>
 		<li>
-			<div class='animated linked'>AirBNB</div>
+			<div class='animated linked airbnb'></div>
 		</li>
 		<li>
-			<div class='animated'>pepsi</div>
+			<div class='animated pepsi'>pepsi</div>
 		</li>
 		<li>
-			<div class='animated'>Frank</div>
+			<div class='animated frank'></div>
 		</li>
 	</ul>
 </section>
@@ -154,23 +184,12 @@
 </footer>
 
 <script type="text/javascript">
-	// nav
-	$(document).scroll(function() {
-		var panelHeight = $('.landing').height();
-        var sT = $(this).scrollTop();
 
-	    if (sT >= panelHeight){
-          $('header.nav2').css({ 'top' : '0', 'transition': '0.5s all ease'});
-          $('header.nav2 button').addClass('pulse');
-        } else {
-          $('header.nav2').css({ 'top' : '-90px'});
-          $('header.nav2 button').removeClass('pulse');
-        }
-	});
-
-	
 	$(document).ready(function() {
-		// testimonal scroller
+        $('.menu-button, .menu-fade-screen, .menu-close').on('click touchstart',function (e) {
+		    $('.menu-content, .menu-fade-screen').toggleClass('is-visible');
+		    e.preventDefault();
+		});        
         $('.scroller').slick({
         	arrows: false
         });
@@ -183,9 +202,6 @@
 				$(this).find('.animated').addClass('linked').addClass('pulse');
         	});
         });
-
-        //influencer scroll
-
 	});
 
 	

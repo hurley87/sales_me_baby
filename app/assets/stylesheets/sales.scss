@@ -1,140 +1,226 @@
-$mobile: new-breakpoint(max-width 480px);
-
-
-/* navigation */
+$mobile: new-breakpoint(max-width 650px);
+$tablet: new-breakpoint(max-width 850px);
 $navigation-height: 85px;
 $navigation-padding: 20px;
+$navmobile-padding: 30px;
 
-
-header.nav {
-  width: 100%;
-
-  .logo {
-    float: left;
-    max-height: $navigation-height;
-    padding-left: $navigation-padding;
-    padding-top: $navigation-padding;
-  }
-
-  ul {
-  	float: right;
-  	margin: 0;
-  	padding-right: $navigation-padding;
-
-  	li {
-  		line-height: $navigation-height;
-  		display: inline-block;
-  		color: white;
-  		float: left;
-  		width: 90px;
-
-  		&:last-child {
-  			width: 270px;
-  			line-height: $navigation-height;
-  			padding-top: $navigation-padding;	
-  		}
-
-  	}
-  }
-}
-
-header.nav1 {
-	background: transparent;
-	position: absolute;
-	top: 0;
-	height: $navigation-height;
-
-	button {
-		@include btn;
-		background-color: transparent;
-		border: 2px solid white;
-		float: right;
-		width: 270px;		
-	}
-}
-
-header.nav2 {
-	background: white;
-	position: fixed;
-	top: -90px;
-	z-index: 99999;
-	height: $navigation-height;
-
-	button {
-		@include cta1;
-		float: right;		
-	}
-}
-
-
-
-/* above the fold */
 section.landing {
   background-color: #eee;
   height: 100vh;
   width: 100%;
   margin: 0;
+  background-image: url('hero.jpg');
+  background-size: cover;
 
-  .tagline {
-	@include clearfix;
-    @include outer-container;
+  .overlay {
     text-align: center;
     padding-top: 100px;
+  	width: 100%;
+  	height: 100vh;
+  	background-color: #494949;
+  	position: absolute;
+  	opacity: 0.6;
+  	top: 0;
+  }
+  .tagline {
+  	position: absolute;
+  	width: 100%;
+  	top: 100px;
+  	text-align: center;
 
-    h1 {
-    	font-size: 5.5em;
-    	color: white;
-    	margin-bottom: 15px;
-    }
+  	h1 {
+	  	font-size: 5.5em;
+	  	font-weight: 900;
+	    color: white;
+	    opacity: 1;
+	    margin-bottom: 10px;
+		@include media($tablet) {
+			font-size: 4em;
+		}	    
+    	@include media($mobile) {
+			font-size: 2.3em;
+			padding-top: 50px;
+	    }	    
+	}
 
-    h4 {
+	h4 {
     	font-size: 1.2em;
     	color: white;
     	margin-top: 0;
+    	@include media($mobile) {
+			font-size: 1em;
+	    } 
     }
-
-    button {
-    	margin-top: 50px;
-    	@include cta1;
+    .search {
+    	margin-top: 150px;
+    	width: 400px;
+  		margin: auto;
+  		height: 50px;
+  		font-size: 2em;
+    	@include media($mobile) {
+			width: 350px;
+	    }  		
+  		input {
+  			float: right;
+  			height: 50px;
+  			width: 350px;
+  			margin-top: 50px;
+  			border: none;
+  			color: #666;
+  			font-size: 0.5em;
+  			padding-left: 5px;
+	    	@include media($mobile) {
+				font-size: 0.4em;
+				width: 325px;
+				padding-left: 25px;
+		    } 	
+  		}
+  		.fa-search {
+  			float: left;
+  			padding: 10px;
+  			width: 50px;
+  			margin-top: 50px;
+  			height: 50px;
+  			background-color: #fff;
+	    	@include media($mobile) {
+				width: 25px;
+		    }  			
+  		}
     }
   }
-
   .brandlogos {
-	background-color: #aaa;
+	background-color: #f7f8fa;
 	height: 100px;
 	width: 100%;
 	position: absolute;
 	bottom: 0;
+
+	.logo-wrapper {
+		height: 100%;
+		width: 75%;
+		margin: auto;
+		@include media($mobile) {
+  			width: 100%;
+  			margin: 0;
+		}
+		.logo {
+			width: 20%;
+			float: left;
+			height: 100%;
+	  		background-repeat: no-repeat;
+	  		background-size: 120px auto;
+	  		max-height: 110px;
+	  		background-position: center center;
+			@include media($tablet) {
+				background-size: 90px auto;
+			}	
+			@include media($mobile) {
+				background-size: 60px auto;
+			}						  		
+		}
+		.bnb {
+			background-image: url('logos/01.png');
+		}
+		.audi {
+			background-image: url('logos/02.png');
+		}
+		.frank {
+			background-image: url('logos/03.png');
+		}
+		.pepsi {
+			background-image: url('logos/04.png');
+		}
+		.uni {
+			background-image: url('logos/05.png');
+		}		
+	}			
   }
 }
 
-/* categories */
-
 section.categories {
 	padding: $navigation-height;
-
+	@include media($mobile) {
+		padding: $navmobile-padding;
+	}
 	h1 {
 		margin-top: 0;
 		margin-bottom: 75px;
 		text-align: center;
 		@include heading1;
+		@include media($mobile) {
+			margin-top: $navmobile-padding;
+		}
 	}
-
 	.cat-row {
 		@include outer-container;
 		margin-top: 28px;
+		@include media($mobile) {
+			margin-top: 0px;
+	    } 		
 		.cat-square {
 			@include span-columns(4);
-			line-height: 200px;
+			@include media($tablet) {
+				@include span-columns(6);
+				width: 100%;
+		    }			
+			@include media($mobile) {
+				@include span-columns(12);
+				margin-bottom: 10px;
+		    } 
 			height: 200px;
-			background-color: #aaa;
-			color: white;
-			text-align: center;
-			text-transform: uppercase;
-			font-size: 2em;
+			position: relative;
+			h1 {
+				color: white;
+				text-align: center;
+				text-transform: uppercase;
+				font-size: 2em;
+				z-index: 99999;
+				margin: 0;
+				position: absolute;
+				width: 100%;
+				top: 75px;
+				font-weight: 700;
+			}
+			.overlay {
+				position: absolute;
+				height: 200px;
+				width: 100%;
+				top: 0;
+				background-color: #494949;
+				opacity: 0.6;
+			}
 		}
+		.nature {
+			background-image: url('nature.jpg');
+			background-repeat: no-repeat;
+			background-position: 0px -113px; 
+		}
+		.trendy {
+			background-image: url('trendy1.jpg');
+			background-repeat: no-repeat;
+			background-position: 0px 0px; 			
+		}
+		.nomad {
+			background-image: url('nomad.jpg');
+			background-repeat: no-repeat;
+			background-position: 0px -113px; 			
+		}
+		.lifestyle {
+			background-image: url('lifestyle.jpg');
+			background-repeat: no-repeat;
+			background-position: 0px -113px; 			
+		}
+		.musician {
+			background-image: url('musician.jpg');
+			background-repeat: no-repeat;
+			background-position: 0px -113px; 		
+		}
+		.fitness {
+			background-image: url('fitness.jpg');
+			background-repeat: no-repeat;
+			background-position: 0px -8px; 			
+		}		
 	}
-
 	.cat-cta {
 		padding-top: 50px;
 		text-align: center;
@@ -145,28 +231,37 @@ section.categories {
 	}
 }
 
-/* case studies */
-
 section.studies {
 	padding: $navigation-height;
-	background-color: #eee;
+	background-image: url('study.jpg');
+  	background-size: cover;
 
+	@include media($mobile) {
+	   padding: $navmobile-padding;
+    }
 	.studies-wrapper {
 		@include outer-container;
-
 		.copy {
-			@include shift(6);
+			@include shift(7);
 			@include span-columns(6);
-
+			@include media($mobile) {
+			   @include shift(0);
+			   width: 100%;
+		    }
 			h1 {
 				@include heading1;
+				@include media($mobile) {
+				   width: 100%;
+			    }				
 				margin-top: 0;
 				margin-bottom: 15px;
 			}
-
 			p {
 				@include span-columns(9);
-
+				color: #666;
+				@include media($mobile) {
+				   width: 100%;
+			    }				
 				&:last-child {
 					margin-top: 50px;
 					margin-bottom: 60px;
@@ -174,82 +269,95 @@ section.studies {
 			}
 		}
 	}
-
-
 	.studies-cta {
-		@include shift(6);
-		@include span-columns(6);
-
+		@include shift(7);
+		@include span-columns(5);
+		@include media($mobile) {
+		   @include shift(0);
+	    }
 		button {
 			@include cta2;
 		}		
 	}
 }
 
-/* collaborations */
-
 section.collaborations {
 	padding: $navigation-height;
-
+	@include media($mobile) {
+		padding: $navmobile-padding;
+	}	
 	h1 {
 		margin-top: 0;
 		margin-bottom: 75px;
 		text-align: center;
 		@include heading1;
+		@include media($mobile) {
+			margin-top: $navmobile-padding;
+			margin-bottom: $navmobile-padding;
+		}		
 	}
-
 	.collab-row {
 		@include outer-container;
 		margin-top: 25px;
-
+		@include media($mobile) {
+			@include span-columns(12);
+			margin-top: 0px;
+		}		
 		.section1 {
 			@include span-columns(8);
 			height: 500px;
 			background-color: #aaa;
+			@include media($mobile) {
+				display: none;
+			}			
 		}
-
 		.section2 {
 			@include span-columns(4);
 			height: 500px;
+			@include media($mobile) {
+				@include span-columns(12);
+				margin-top: 25px;
+			}				
 		}
-
 		.section3 {
 			@include span-columns(4);
 			height: 500px;
 			background-color: #aaa;
+			@include media($mobile) {
+				display: none;
+			}				
 		}
-
 		.img {
 			height: 237px;
 			background-color: #aaa;
 		}
-
 		.m-t {
 			margin-top: 25px;
 		}
 	}
-
 	.collab-cta {
 		text-align: center;
 		margin-top: 50px;
 		button {
 			@include cta2;
+			@include media($mobile) {
+				margin-top: $navmobile-padding;
+			}			
 		}
 	}	
 }
 
-/* influencer */
-
 section.influencer {
 	padding: $navigation-height;
-	background-color: #eee;
+	background-image: url('max.jpg');
+  	background-size: cover;
+
 	@include media($mobile) {
-	   padding: 30px;
+	   padding: $navmobile-padding;
     }
 	.influencer-wrapper {
 		@include outer-container;
-		@include media($mobile) {
-	    }
+
 		.copy {
 			@include span-columns(6);
 
@@ -281,7 +389,6 @@ section.influencer {
 		}
 	}
 
-
 	.influencer-cta {
 		@include span-columns(12);
 		button {
@@ -292,7 +399,9 @@ section.influencer {
 
 section.testimonials {
 	padding: $navigation-height;
-
+	@include media($mobile) {
+		padding: $navmobile-padding;
+	}
 	@mixin linked {
 		transition: 0.5s all ease;
 		border-radius: 80px;
@@ -300,8 +409,8 @@ section.testimonials {
 		height: 80px;
 		border-radius: 80px;
 		opacity: 1;		
+		cursor: pointer;
 	}
-
 	h1 {
 		margin-top: 0;
 		width: 75%;
@@ -309,67 +418,90 @@ section.testimonials {
 		margin-top: 50px;
 		text-align: center;
 		@include heading1;
+		@include media($mobile) {
+			font-size: 1.5em;
+			width: 100%;
+		}
 	}
-
 	p {
 		text-align: center;
 		margin-bottom: 50px;
 	}	
-
 	ul {
-		 	
-		  width: 400px;
-		  margin: 0 auto;
-		  height: 150px;
-
+		width: 400px;
+		margin: 0 auto;
+		height: 150px;
+		@include media($mobile) {
+			padding-left: 0;
+			width: 100%;
+		}
 		li {
 			display: inline-block;
-			 margin-top: 50px;
+			margin-top: 50px;
 			width: 100px;
-			
+			@include media($mobile) {
+				width: 32%;
+			}
 			.animated {
-				width: 75px;
-				height: 75px;
-				border-radius: 75px;
-				line-height: 75px;
-				text-align: center;
-				color: white;
-				background-color: #aaa;
+				width: 78px;
+				height: 78px;
+				border-radius: 78px;
 				opacity: 0.3;
-
+				margin: auto;
 				&:hover {
 					@include linked;
 				}
 
 			}
-
 			.linked {
 				@include linked;					
+			}
+			.airbnb {
+				background-image: url('bnb.png');
+				background-color: #ff3366;
+				background-size: 70px 70px;
+				background-repeat: no-repeat;
+				background-position: center 1px;
+			}
+			.frank {
+				background-image: url('logos/frank-sm.png');
+				background-color: #181616;
+				background-size: 70px 70px;
+				background-repeat: no-repeat;
+				background-position: center 1px;
 			}
 
 		}
 	}
 }
 
-
 section.support {
 	padding: $navigation-height;
-	background-color: #aaa;
+	background-image: url('team.jpg');
+  	background-size: cover;
 	text-align: center;
 	padding-bottom: 300px;
 	color: white;
-
+	@include media($mobile) {
+		padding: $navmobile-padding;
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
 	h1 {
 		margin-top: 0;
 		margin-bottom: 15px;
 		@include heading1;
+		@include media($mobile) {
+			width: 100%;
+		}		
 	}
-
 	p {
 		width: 50%;
 		margin: auto;
+		@include media($mobile) {
+			width: 100%;
+		}
 	}	
-
 	.support-cta {
 		@include outer-container;
 		margin-top: 40px;
@@ -377,6 +509,7 @@ section.support {
 		button {
 			@include btn;
 			width: 250px;
+			margin-top: 10px;
 			text-transform: none;
 			background-color: #494949;
 		}
@@ -387,14 +520,17 @@ section.closing {
 	padding: $navigation-height;
 	background-color: #ff3366;
     text-align: center;
-
+	@include media($mobile) {
+		padding: $navmobile-padding;
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}    
 	h1 {
 		margin-top: 0;
 		color: white;
 		text-align: center;
 		@include heading1;
 	}
-
 	button {
 		@include cta1;
 		background-color: white;

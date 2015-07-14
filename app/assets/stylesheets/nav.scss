@@ -1,0 +1,143 @@
+$mobile: new-breakpoint(max-width 650px);
+$tablet: new-breakpoint(max-width 850px);
+$navigation-height: 85px;
+$navigation-padding: 20px;
+$navmobile-padding: 30px;
+
+header {
+  	width: 100%;
+  	position: absolute;
+  	top: 0;
+  	height: $navigation-height;
+  	z-index: 9999;
+
+  	.fa-bars {
+  		color: #fff;
+  		float: left;
+  	}
+
+  	.logo { 
+  		float: left;
+  		padding: 10px 10px;
+  		margin-top: 10px;
+  		opacity: 1;
+  		@include media($mobile) {
+  			margin-left: 15%;
+		}
+  	}
+
+  	nav {
+  		@include media($mobile) {
+  			display: none;
+		}
+  		  ul {
+		  	float: right;
+		  	margin: 0;
+		  	padding-right: $navigation-padding;
+
+		  	li {
+		  		line-height: $navigation-height;
+		  		display: inline-block;
+		  		float: left;
+		  		width: 90px;
+
+		  		a {
+		  			color: white;
+		  			text-decoration: none;
+		  			opacity: 1;
+		  		}
+
+		  		&:last-child {
+		  			width: 270px;
+		  			line-height: $navigation-height;
+		  			padding-top: $navigation-padding;
+		  			button {
+						@include btn;
+						background-color: transparent;
+						border: 2px solid white;
+						float: right;
+						width: 270px;	
+
+						&:hover {
+							background-color: #fff;
+							color: #666;
+							transition: 2s all ease;
+						}	
+					}	
+		  		}
+
+		  	}
+		  }
+  	}
+
+	.menu-content {  
+	  $action-color: #477DCA !default;
+	  $dark-gray: #333 !default;
+	  $menu-border-color: $dark-gray;
+	  $menu-background: lighten($menu-border-color, 5%);
+	  $menu-color: #fff;
+	  $menu-border: 1px solid $menu-border-color;
+	  $menu-background-hover: $action-color;
+	  $menu-color-hover: #fff;
+	  $menu-background-focus: lighten($menu-background, 5%);
+
+	  @include position(fixed, 0px auto 0px 0px);
+	  @include size(220px 100%);
+	  @include transform(translateX(-220px));
+	  @include transition(all 0.1s linear);
+	  background: $menu-background;
+	  z-index: 999;
+
+	  ul {
+	    padding: 0;
+	    margin: 0;
+	  }
+
+	  li {
+	    list-style: none;
+	  }
+
+	  li a {
+	    color: #fff;
+	    display: block;
+	    font-weight: bold;
+	    padding: 1em;
+	    text-decoration: none;
+
+	    &:hover {
+	    	cursor: pointer;
+	    }
+	  }
+
+	  &.is-visible {
+	    @include transform(translateX(0));
+	  }
+	}
+
+	.menu-fade-screen {
+	  @include position(fixed, 0px 0px 0px 0px);
+	  @include transition;
+	  background: black;
+	  opacity: 0;
+	  visibility: hidden;
+	  z-index: 999998;
+
+	  &.is-visible {
+	    opacity: 0.4;
+	    visibility: visible;
+	  }
+	}
+
+	.menu-button {
+	    padding: 20px 20px;
+	    display: inline-block;
+	    cursor: pointer;
+	    outline: none;
+	    display: none;
+
+	    @include media($mobile) {
+			display: block;
+		}
+	}
+
+}
