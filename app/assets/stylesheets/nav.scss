@@ -16,15 +16,31 @@ header {
   		float: left;
   	}
 
-  	.logo { 
-  		float: left;
-  		padding: 10px 10px;
-  		margin-top: 10px;
-  		opacity: 1;
-  		@include media($mobile) {
-  			margin-left: 15%;
-		}
+  	.logo-wrapper {
+  		position: absolute;
+  		width: 100%;
+  		top: 0;
+  		z-index: -1;
+
+  		.logo { 
+	  		float: left;
+	  		padding: 10px 10px;
+	  		margin-top: 10px;
+	  		opacity: 1;
+	  		@include media($mobile) {
+	  			margin: auto;
+	  			float: none;
+	  			img {
+					margin-top: 7px;
+				    display: block;
+				    margin: auto;
+	  			}
+			}
+	  	}
+
   	}
+
+
 
   	nav {
   		@include media($mobile) {

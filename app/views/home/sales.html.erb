@@ -1,8 +1,10 @@
 <header>
 	<i class="fa fa-bars fa-2x js-menu-trigger menu-button"></i>
-	<%= link_to root_path, class: 'logo' do %>
-	  <%= image_tag 'logo-white.png' %>
-	<% end %>
+	<div class='logo-wrapper'>
+		<%= link_to root_path, class: 'logo' do %>
+		  <%= image_tag 'logo-white.png' %>
+		<% end %>
+	</div>
 	<nav>
 		<ul>
 			<li><a href="javascript:void(0)">Sign up</a></li>
